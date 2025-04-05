@@ -1,0 +1,17 @@
+name: CI Pipeline
+
+
+jobs:
+  build:
+    runs-on: ubuntu-latest, macos-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup project
+        run: make setup
+
+      - name: Run tests
+        run: make test
+
+      - name: Run linter
+        run: make lint
