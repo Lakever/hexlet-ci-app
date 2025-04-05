@@ -3,7 +3,7 @@ name: CI Pipeline
 
 jobs:
   build:
-    runs-on: ubuntu-latest, macos-latest
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
 
