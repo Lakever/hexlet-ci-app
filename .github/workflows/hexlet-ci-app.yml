@@ -1,17 +1,17 @@
-name: CI Pipeline
-
-
 jobs:
-  build:
+  build: # имя взято для примера
     runs-on: ubuntu-latest
     steps:
+      # Клонируем репозиторий
       - uses: actions/checkout@v4
-
-      - name: Setup project
-        run: make setup
-
-      - name: Run tests
-        run: make test
-
-      - name: Run linter
-        run: make lint
+      # Устанавливаем Node.js
+      - uses: actions/setup-node@v4
+      # Ставим зависимости
+      - run: npm install
+      # Запускаем линтер
+      - run: npm run lint
+      # Запускаем тесты
+      # у шагов может быть имя, иногда это помогает отладке
+      # имя выводится на Github при просмотре сборки
+      - name: run tests
+        run: npm test # name и run относятся к одной задаче, поэтому дефис ставится только перед name
